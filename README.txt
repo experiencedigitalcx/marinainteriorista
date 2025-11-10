@@ -1,4 +1,4 @@
-Template Name: Created By EDCX - Digital Experience Digital CX
+Template Name: Created By EDCX - Experience Digital CX (EDCX)
 Author: Juli Rovira Godayol
 
 
