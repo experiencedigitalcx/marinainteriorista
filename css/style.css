@@ -1793,3 +1793,16 @@ figure.dotted-bg {
 }
 
 
+@media (max-width: 600px) {
+    .menu_fixed {
+        font-size: 16px;
+    }
+    .menu_fixed_down{
+        
+        font-size: 16px;
+    }
+    
+    
+}
+
+
