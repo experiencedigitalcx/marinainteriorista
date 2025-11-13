@@ -1806,3 +1806,9 @@ figure.dotted-bg {
 }
 
 
+/* 📱 Mòbil */
+@media (max-width: 768px) {
+  .floating-image {
+    max-width: 300px;
+  }
+}

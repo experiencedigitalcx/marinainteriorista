@@ -148,16 +148,23 @@ function getNextImage() {
 function showImages() {
   imageContainer.innerHTML = ""; // esborra les anteriors
 
-const positions = patternToggle
+  const isMobile = window.innerWidth <= 768;
+  const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
+
+  // definim les mides segons el dispositiu
+  const centerSize = isMobile ? "280px" : isTablet ? "360px" : "480px";
+  const sideSize   = isMobile ? "160px" : isTablet ? "220px" : "250px";
+
+  const positions = patternToggle
     ? [
-        { left: "50%", top: "50%", transform: "translate(-50%, -50%)", size: "480px" }, // centre
-        { left: "15%", top: "15%", transform: "translate(0, 0)", size: "250px" }, // superior esquerra
-        { left: "85%", top: "85%", transform: "translate(-100%, -100%)", size: "250px" } // inferior dreta
+        { left: "50%", top: "50%", transform: "translate(-50%, -50%)", size: centerSize }, // centre (gran)
+        { left: "15%", top: "15%", transform: "translate(0, 0)", size: sideSize }, // superior esquerra (petita)
+        { left: "85%", top: "85%", transform: "translate(-100%, -100%)", size: sideSize } // inferior dreta (petita)
       ]
     : [
-        { left: "50%", top: "50%", transform: "translate(-50%, -50%)", size: "480px" }, // centre
-        { left: "85%", top: "15%", transform: "translate(-100%, 0)", size: "250px" }, // superior dreta
-        { left: "15%", top: "85%", transform: "translate(0, -100%)", size: "250px" } // inferior esquerra
+        { left: "50%", top: "50%", transform: "translate(-50%, -50%)", size: centerSize }, // centre (gran)
+        { left: "85%", top: "15%", transform: "translate(-100%, 0)", size: sideSize }, // superior dreta (petita)
+        { left: "15%", top: "85%", transform: "translate(0, -100%)", size: sideSize } // inferior esquerra (petita)
       ];
 
   // --- mostra la imatge central primer ---
