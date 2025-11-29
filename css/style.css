@@ -1682,17 +1682,80 @@ figure.dotted-bg {
       width: 100%;       /* ocupa todo el ancho */
       background: #ffffff00;  /* color de fondo */
       color: white;      /* color del texto */
-      padding: 5px;
-      font-size: 23px;
+      padding: 0px;
+      font-size: 18px;
       text-align: center;
       z-index: 1000;     /* para que quede por encima del resto */
     font-family: sans-serif;
     color: black;
     
 }
+
+
+
+
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.menu-item {
+  flex: 1;
+  text-align: center;
+}
+
+.menu-item a {
+  display: inline-block;
+  padding: 10px 0;
+}
+
+
+/* Baixats per defecte */
+.lower-link {
+  padding-top: 25px;
+  transition: padding 1s ease;
+}
+
+/* Quan el menú està en mode scroll cap avall → pugem els dos */
+.menu_fixed.hide-links .lower-link {
+  padding-top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.menu_fixed.hide-links {
+  padding: 5px 0; /* altura quan MARINA i ROMERO desapareixen */
+}
+
+.menu_fixed.hide-links a.hide-on-scroll {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.menu_fixed.hide-links a.hide-on-scroll {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+
 .menu_fixed a{
     color: black;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 
@@ -1707,7 +1770,7 @@ figure.dotted-bg {
       bottom: 0;         /* anclado al borde inferior */
       left: 0;           /* pegado a la izquierda */
       width: 100%; 
-     font-size: 23px;/* ocupa todo el ancho */
+     font-size: 18px;/* ocupa todo el ancho */
       background: #ffffff00;  /* color de fondo */
       color: white;      /* color del texto */
       padding: 5px;
@@ -1719,7 +1782,7 @@ figure.dotted-bg {
 
 .menu_fixed_down a{
     color: black;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 .menu_fixed_down a:hover{
