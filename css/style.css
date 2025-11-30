@@ -1713,7 +1713,7 @@ figure.dotted-bg {
 
 /* Baixats per defecte */
 .lower-link {
-  padding-top: 25px;
+  padding-top: 40px;
   transition: padding 1s ease;
 }
 
@@ -1727,6 +1727,54 @@ figure.dotted-bg {
 
 
 
+/*Footer css*/
+.footer-layout {
+  margin-top: 200px;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* com la imatge */
+  font-family: Arial, sans-serif;
+  color: black;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* TOP CENTER */
+.top-center {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* LEFT CENTER */
+.left-center {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  text-align: left;
+}
+
+/* RIGHT CENTER */
+.right-center {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+/* BOTTOM CENTER */
+.bottom-center {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
 
 
 
@@ -1873,5 +1921,83 @@ figure.dotted-bg {
 @media (max-width: 768px) {
   .floating-image {
     max-width: 300px;
+  }
+}
+
+
+
+
+
+
+
+/*proecte individual*/
+
+.hero-image {
+  width: 100%;
+  height: 100vh;      /* altura pantalla completa */
+  margin-top: 00px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* Màxima especificitat + !important per evitar sobreescriptures */
+.menu_projecte .menu-row a {
+  color: white !important;               /* estat per defecte: blanc */
+  transition: color 0.25s ease;
+}
+
+/* Quan el menú tingui la classe .scrolled -> text negre */
+.menu_projecte.scrolled .menu-row a {
+  color: black !important;
+}
+
+
+
+
+
+/*Estudi*/
+
+.two-col-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.col-left, .col-right {
+  flex: 1;
+}
+
+.col-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.col-right, .col-right a, .col-image {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.col-image {
+  object-fit: cover;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .two-col-wrapper {
+    flex-direction: column;   /* Imatge a dalt, text a sota */
+  }
+
+  .col-right {
+    height: 300px;            /* Alçada mínima de la imatge a mòbil */
+  }
+
+  .col-left {
+    padding: 20px;
   }
 }

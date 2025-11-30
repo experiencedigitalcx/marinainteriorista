@@ -28,8 +28,58 @@
   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
   <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" href="css/style.css">
+    
+    <!--apartat zoom-->
+   <style>
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.25s ease;
+    transform-origin: center center;
+  }
+  .lightbox img.open { transform: scale(1); }
+  .lightbox-close {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    color: #fff;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+  }
+  /* Prev/Next optional buttons */
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+  }
+  .lightbox-nav.prev { left: 12px; }
+  .lightbox-nav.next { right: 12px; }
+  /* Prevent body scroll while open */
+  body.lightbox-open { overflow: hidden; }
+</style>
 
-  <title>interiorisme.cat</title>
+
+  <title>ESTUDI - MARINA ROMERO</title>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
@@ -52,155 +102,104 @@
   
     
     
-
-    <div class="menu_fixed">
-   
-    <table style="width: 100%">
-        <tr>
-        <td style="width: 50%">
-             <a href="index.html">INTERIORISME</a>
-        </td>
-        <td style="width: 50%">
-            <a href="estudi.html">ESTUDI</a>
-        </td>
-        </tr>    
-    </table>
-    </div>
+<div class="menu_fixed" id="menu">
+  <div class="menu-row">
     
- <div class="menu_fixed_down">
-   
-    <table style="width: 100%">
-        <tr>
-        <td>
-             <a href="serveis.html">SERVEIS</a>
-        </td>
-        <td>
-            <a href="projectes.html">PROJECTES</a>
-        </td>
-        <td>
-            <a href="contacte.html">CONTACTE</a>
-        </td>
-        </tr>    
-    </table>
+
+    <div class="menu-item lower-link">
+      <a href="estudi.html">ESTUDI</a>
     </div>
 
-
-
-  <div class="untree_co-section pb-0" id="home-section">
-    <div class="container">
-      <div class="row justify-content-center text-center">
-        <div class="col-md-7">
-          <h1 class="heading gsap-reveal-hero mb-3"><strong>ESTUDI</strong></h1>
-        </div>
-      </div>
-      
+    <div class="menu-item">
+      <a href="index.html" class="hide-on-scroll">PROJECTES</a>
     </div>
+
+    <div class="menu-item lower-link">
+      <a href="index.html">MARINA ROMERO</a>
+    </div>
+
+    
   </div>
+</div>
 
 
- <div class="untree_co-section pb-0" id="about-section">
-      <div style="background-color: #c9c9c942;" class="container">
-        <div class="row justify-content-center mb-3">
-          <div class="col-lg-7 mx-auto text-center author-wrap">
-            <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
-            <h3 class="text-black h5 font-weight-bold mb-2 gsap-reveal-hero">Marina Romero</h3>
-            <p class="gsap-reveal-hero">DECO SENSITIVE</p>
-          </div>
-        </div>
-
-        <div class="row justify-content-center">
-          <div class="col-lg-7">
 
 
-            <h2 style="color: gray">Qui som</h2>
-              <p class="gsap-reveal-hero">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
 
-            <p class="gsap-reveal-hero">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+<div class="two-col-wrapper">
+  
 
-            <p class="gsap-reveal-hero">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p><br>
-              <h2 style="color: gray">Filosofia</h2>
-            <p class="gsap-reveal-hero">The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+  <div class="col-left" style="margin-top: 100px;">
+    <h2 class="col-title" style="color: dimgray">Estudi</h2>
+    <p class="col-text">
+      Based in Barcelona, Isern Serra founded his eponymous interior design studio in 2008, and today is one of the most versatile design firms on the Spanish scene. With delicacy and cultural sensitivity, he develops an architectural language that takes materiality and concept into account in each project. The result is contemporary, vibrant and essential forms with clear Mediterranean roots. The purity of lines contrasts with the richness of textures, resulting in a tactile, serene and timeless design. The raw with the elaborate, sophistication with nudity, the traditional with the digital, the sculptural with synthesis, the real with the dreamlike. It is a vernacular simplicity with a contemporary look.
 
-            <p class="gsap-reveal-hero mb-5">When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+All his environments incessantly invoke the sensitive and the human. They are singular places, structures and objects, capable of evoking unique atmospheres, and that mix reality with imagination. In them, the senses and the physical experience of space, textures and light place people at the center.
+
+Functionality, durability and warmth are the main components of Serra's work. The combination of traditional and artisanal techniques with more experimental contemporary processes, neutral colors, unique and bespoke pieces or local features characterize the studio's projects, which include furniture, lighting, creative direction, spaces, exhibition installations and more. It is this multidisciplinary, immersive and global approach to design that is redefining the new interiors in our country. Text by Rocío Ley
+
+“It is in our hands to make progress, modern building systems and prefabrication possible while preserving the human quality of the popular constructions of the past. One of the most important problems for a modern architect is to make progress compatible with the humanity radiated by the old constructions”. José A. Coderch de Sentmenat. Historia de unas castañuelas (COAM Magazine), 1987.
+    </p>
+  </div>
+    <div class="col-right">
+    <a href="#">
+      <img src="images/marina/casa_anima/6.jpg" alt="Imatge secció" class="col-image">
+    </a>
+  </div>
+</div>
+
+    
+    
+<div class="two-col-wrapper">
+  
+
+  <div class="col-left" style="margin-top: 100px;">
+    <h2 class="col-title" style="color: dimgray">Marina Romero</h2>
+    <p class="col-text">
+      Based in Barcelona, Isern Serra founded his eponymous interior design studio in 2008, and today is one of the most versatile design firms on the Spanish scene. With delicacy and cultural sensitivity, he develops an architectural language that takes materiality and concept into account in each project. The result is contemporary, vibrant and essential forms with clear Mediterranean roots. The purity of lines contrasts with the richness of textures, resulting in a tactile, serene and timeless design. The raw with the elaborate, sophistication with nudity, the traditional with the digital, the sculptural with synthesis, the real with the dreamlike. It is a vernacular simplicity with a contemporary look.
+
+All his environments incessantly invoke the sensitive and the human. They are singular places, structures and objects, capable of evoking unique atmospheres, and that mix reality with imagination. In them, the senses and the physical experience of space, textures and light place people at the center.
+
+Functionality, durability and warmth are the main components of Serra's work. The combination of traditional and artisanal techniques with more experimental contemporary processes, neutral colors, unique and bespoke pieces or local features characterize the studio's projects, which include furniture, lighting, creative direction, spaces, exhibition installations and more. It is this multidisciplinary, immersive and global approach to design that is redefining the new interiors in our country. Text by Rocío Ley
+
+“It is in our hands to make progress, modern building systems and prefabrication possible while preserving the human quality of the popular constructions of the past. One of the most important problems for a modern architect is to make progress compatible with the humanity radiated by the old constructions”. José A. Coderch de Sentmenat. Historia de unas castañuelas (COAM Magazine), 1987.
+    </p>
+  </div>
+    <div class="col-right">
+    <a href="#">
+      <img src="images/marina/casa_anima/9.jpg" alt="Imatge secció" class="col-image">
+    </a>
+  </div>
+</div>
+    
+    
+    
+    
+    
 
 
-            <p class="gsap-reveal-hero text-center"><a href="contacte.html" target="_blank" class="btn btn-outline-black">Conatcte</a></p>    
-          </div>
-        </div>
-      </div>
-    </div>
    
 
-    <div class="site-footer">
-      <div class="container">
+    <div class="footer-layout">
 
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Home</h3>
-              <ul class="list-unstyled float-left links">
-                <li><a href="projectes.html">Projectes</a></li>
-                <li><a href="serveis.html">Serveis</a></li>
-                <li><a href="estudi.html">Estudi</a></li>
-                <li><a href="contacte.html">Contacte</a></li>
-              </ul>
-            </div> <!-- /.widget -->
-          </div> <!-- /.col-lg-3 -->
+      <div class="top-center">
+        <p>Carrer Jacint Verdaguer nº5, entresol, Vic<br>(Entrada "Casino" Pça. Major 08500 Barcelona</p>
+      </div>
 
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Projectes</h3>
-              <ul class="list-unstyled float-left links">
-                <li><a href="projecte_x.html">Projecte 1</a></li>
-                <li><a href="#">Projecte 2</a></li>
-                <li><a href="#">Projecte 3</a></li>
-                <li><a href="#">Projecte 4</a></li>
-                <li><a href="#">Projecte 5</a></li>
-              </ul>
-            </div> <!-- /.widget -->
-          </div> <!-- /.col-lg-3 -->
+      <div class="left-center">
+        <p>HOLA@INTERIORISTES.CAT<br>+34 685 983 806</p>
+      </div>
 
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Serveis</h3>
-              <ul class="list-unstyled float-left links">
-                <li><a href="interiorisme.html">Interiorisme</a></li>
-                <li><a href="reformesintegrals.html">Reformes integrals</a></li>
-              </ul>
-            </div> <!-- /.widget -->
-          </div> <!-- /.col-lg-3 -->
+      <div class="right-center">
+        <p>WEB DESIGN BY<br>JULI ROVIRA - EDCX</p>
+      </div>
 
+      <div class="bottom-center">
+        <p>FOLLOW US ON<br>INSTAGRAM @MARINAROMEROINTERIORISTA</p>
+      </div>
 
-          <div class="col-lg-3">
-            <div class="widget">
-              <h3>Conatcte</h3>
-              <address>Carrer d'exemple de Vic, 23</address>
-              <ul class="list-unstyled links mb-4">
-                <li><a href="tel://11234567890">+34 600 332 593</a></li>
-                <li><a href="mailto:info@mydomain.com">info@mydomain.com</a></li>
-              </ul>
-
-              
-
-            </div> <!-- /.widget -->
-          </div> <!-- /.col-lg-3 -->
-
-        </div> <!-- /.row -->
-
-
-
-
-
-        <div class="row mt-5">
-          <div class="col-12 text-center">
-           
-            <p style="font-size: 10px;" class="mb-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://https://experience-digital-cx.sumupstore.com/">Juli - Experience Digital CX</a>  
-                
-            </p>
-          </div>
-        </div>
-      </div> <!-- /.container -->
-    </div> <!-- /.site-footer -->
+    </div>
+        <!-- /.site-footer -->
 
     <div id="overlayer"></div>
     <div class="loader">
@@ -224,10 +223,118 @@
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/TweenMax.min.js"></script>
     <script src="js/ScrollMagic.min.js"></script>
+    <script src="js/propi.js"></script>
     <script src="js/scrollmagic.animation.gsap.min.js"></script>
 
 
     <script src="js/custom.js"></script>
+    
+    
+    
+    <!--Apartat zoom-->
+    <script>
+  (function () {
+    // Selecciona els elements que contenen les imatges (els teus .portfolio-item)
+    const items = document.querySelectorAll(".portfolio-item");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementById("lightbox-close");
+    const prevBtn = document.getElementById("lightbox-prev");
+    const nextBtn = document.getElementById("lightbox-next");
+
+    // Construïm un array amb totes les URL reals d'imatges del teu grid (respectant lazyload: data-src)
+    const imgElements = Array.from(document.querySelectorAll(".portfolio-item img"));
+    const imgSrcs = imgElements.map(img => img.dataset.src || img.getAttribute("src") || img.src);
+
+    let currentIndex = -1;
+
+    function openLightbox(index) {
+      if (index < 0 || index >= imgSrcs.length) return;
+      currentIndex = index;
+      const src = imgSrcs[index];
+      lightboxImg.src = src;
+      lightbox.classList.add("show");
+      document.body.classList.add("lightbox-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      // focus per accessibilitat
+      closeBtn.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("show");
+      document.body.classList.remove("lightbox-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+      currentIndex = -1;
+    }
+
+    function showNext() {
+      if (currentIndex === -1) return;
+      const next = (currentIndex + 1) % imgSrcs.length;
+      openLightbox(next);
+    }
+
+    function showPrev() {
+      if (currentIndex === -1) return;
+      const prev = (currentIndex - 1 + imgSrcs.length) % imgSrcs.length;
+      openLightbox(prev);
+    }
+
+    // Afegim listeners als 'items' (ancres) — prevenim la navegació normal
+    items.forEach(item => {
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        // Trobar l'índex de la imatge corresponent
+        const img = item.querySelector("img");
+        if (!img) return;
+        const src = img.dataset.src || img.getAttribute("src") || img.src;
+        const index = imgSrcs.indexOf(src);
+        // si index és -1 (p.ex. lazyload encara no ha substituït), recalculem directament
+        const safeIndex = index >= 0 ? index : imgElements.indexOf(img);
+        openLightbox(safeIndex >= 0 ? safeIndex : 0);
+      });
+    });
+
+    // Tancar amb el botó
+    closeBtn.addEventListener("click", closeLightbox);
+
+    // Tancar clicant fora de la imatge
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Navegació prev/next
+    prevBtn.addEventListener("click", function (e) { e.stopPropagation(); showPrev(); });
+    nextBtn.addEventListener("click", function (e) { e.stopPropagation(); showNext(); });
+
+    // Tecles: ESC per tancar, ← i → per navegar
+    document.addEventListener("keydown", function (e) {
+      if (lightbox.classList.contains("show")) {
+        if (e.key === "Escape") {
+          closeLightbox();
+        } else if (e.key === "ArrowRight") {
+          showNext();
+        } else if (e.key === "ArrowLeft") {
+          showPrev();
+        }
+      }
+    });
+
+    // Si uses una llibreria de lazyload que omple data-src més tard,
+    // actualitza imgSrcs quan l'imatge carregui
+    imgElements.forEach((img, i) => {
+      img.addEventListener("load", function () {
+        imgSrcs[i] = img.dataset.src || img.getAttribute("src") || img.src;
+      });
+    });
+
+    // Debug: comprova la taula d'imatges a la consola (elimina si no et cal)
+    // console.log("Lightbox images:", imgSrcs);
+  })();
+</script>
+    
+
     
   </body>
 
