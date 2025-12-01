@@ -1922,6 +1922,7 @@ figure.dotted-bg {
   @media (max-width: 768px) {
   #image-container {
     margin-bottom: 20px;
+      margin-top: 0px;
   }
   }
 
