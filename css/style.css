@@ -2124,27 +2124,38 @@ figure.dotted-bg {
     
     
     
-/*Punter ratolí*/
-    /* Cursor circular negre per defecte */
-body {
-  cursor: none; /* Oculta el cursor normal */
-  position: relative;
+    
+    
+    
+    
+/* ---- Estil base ---- */
+.full-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
 }
 
-/* Creem un cercle que segueix el cursor */
-#custom-cursor {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: black;
-  position: fixed;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: background-color 0.2s, transform 0.1s;
-  z-index: 9999;
+.full-overlay h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  
+  color: transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); /* millora llegibilitat */
 }
 
-/* Quan el cursor passa per un enllaç */
-a:hover ~ #custom-cursor {
-  background-color: lightgray;
+/* ---- Efecte hover (desktop) ---- */
+.portfolio-full-item:hover .full-overlay h3 {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* ---- Mòbil: sempre visible ---- */
+@media (max-width: 768px) {
+  .full-overlay h3 {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
 }
