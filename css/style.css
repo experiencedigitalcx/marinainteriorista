@@ -1920,14 +1920,7 @@ figure.dotted-bg {
 
   /* Responsive mòbil */
   @media (max-width: 768px) {
-    #image-container img[data-role="center"] {
-      width: 200px !important;
-      height: auto;
-    }
-    #image-container img[data-role="side"] {
-      width: 100px !important;
-      height: auto;
-    }
+  
   }
 
 
@@ -2054,7 +2047,7 @@ figure.dotted-bg {
 /* Media query per mòbil */
 @media (max-width: 768px) {
   .footer-layout{
-    font-size: 10px;
+    font-size: 8px;
   }
 
   
@@ -2066,13 +2059,8 @@ figure.dotted-bg {
 
 /*mobil imatge centre gran*/
 @media (max-width: 768px) {
-  #image-container img[data-role="center"] {
-    width: 300px !important; /* més petita al mobil */
-  }
+  
 
-  #image-container img[data-role="side"] {
-    width: 200px !important; /* opcional: també redueix les laterals */
-  }
 }
 
 
