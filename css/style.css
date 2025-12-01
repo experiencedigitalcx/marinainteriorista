@@ -1920,7 +1920,9 @@ figure.dotted-bg {
 
   /* Responsive mòbil */
   @media (max-width: 768px) {
-  
+  #image-container {
+    margin-bottom: 20px;
+  }
   }
 
 
