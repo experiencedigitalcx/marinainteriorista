@@ -48,3 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // també escoltem resize per si el navegador canvia coses
   window.addEventListener('resize', updateMenuColor);
 });
+
+
+

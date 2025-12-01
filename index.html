@@ -93,10 +93,10 @@ const steps = [
   { center: "8.jpg", sides: ["32.jpg", "7.jpg"] }
 ];
 
-const centerSize = 480;
-const sideSize = 200;
-const sideSizeMobile = 100; // laterals mòbil
-const centerSizeMobile = 200; // central mòbil
+const centerSize = 500;
+const sideSize = 250;
+const sideSizeMobile = 200; // laterals mòbil
+const centerSizeMobile = 300; // central mòbil
 const duration = 1000;
 let index = 0;
 
@@ -211,7 +211,7 @@ function initFirstStep() {
 
 // Inici i interval
 initFirstStep();
-setInterval(showStep, 6000);
+setInterval(showStep, 4000);
 
 // Redimensionament finestra
 window.addEventListener("resize", () => {
@@ -244,6 +244,7 @@ window.addEventListener("resize", () => {
   <script src="js/ScrollMagic.min.js"></script>
   <script src="js/scrollmagic.animation.gsap.min.js"></script>
   <script src="js/custom.js"></script>
+  <script src="js/propi.js"></script>
 
 </body>
 </html>
