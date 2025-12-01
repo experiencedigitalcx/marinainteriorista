@@ -1920,10 +1920,10 @@ figure.dotted-bg {
 
   /* Responsive mòbil */
   @media (max-width: 768px) {
-  #image-container {
-    margin-bottom: 20px;
-      margin-top: 0px;
-  }
+      article, aside, figcaption, figure, footer, header, hgroup, main, nav, section{
+          margin-left: 20px;
+          margin-right: 20px;
+      }
   }
 
 
