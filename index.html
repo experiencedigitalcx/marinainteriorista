@@ -75,140 +75,155 @@
     }
   </style>
 
-<script>
-  const imageContainer = document.getElementById("image-container");
-  const basePath = "images/marina/pantalla_home_img_materials/";
-  const steps = [
-    { center: "32.jpg", sides: ["31.jpg", "23.jpg"] },
-    { center: "23.jpg", sides: ["13.jpg", "11.jpg"] },
-    { center: "13.jpg", sides: ["15.jpg", "16.jpg"] },
-    { center: "16.jpg", sides: ["17.jpg", "3.jpg"] },
-    { center: "17.jpg", sides: ["18.jpg", "29.jpg"] },
-    { center: "18.jpg", sides: ["19.jpg", "33.jpg"] },
-    { center: "19.jpg", sides: ["25.jpg", "28.jpg"] },
-    { center: "25.jpg", sides: ["20.jpg", "32.jpg"] },
-    { center: "20.jpg", sides: ["24.jpg", "2.jpg"] },
-    { center: "24.jpg", sides: ["30.jpg", "22.jpg"] },
-    { center: "30.jpg", sides: ["8.jpg", "4.jpg"] },
-    { center: "8.jpg", sides: ["32.jpg", "7.jpg"] }
-  ];
+    <script>
+const imageContainer = document.getElementById("image-container");
+const basePath = "images/marina/pantalla_home_img_materials/";
+const steps = [
+  { center: "32.jpg", sides: ["31.jpg", "23.jpg"] },
+  { center: "23.jpg", sides: ["13.jpg", "11.jpg"] },
+  { center: "13.jpg", sides: ["15.jpg", "16.jpg"] },
+  { center: "16.jpg", sides: ["17.jpg", "3.jpg"] },
+  { center: "17.jpg", sides: ["18.jpg", "29.jpg"] },
+  { center: "18.jpg", sides: ["19.jpg", "33.jpg"] },
+  { center: "19.jpg", sides: ["25.jpg", "28.jpg"] },
+  { center: "25.jpg", sides: ["20.jpg", "32.jpg"] },
+  { center: "20.jpg", sides: ["24.jpg", "2.jpg"] },
+  { center: "24.jpg", sides: ["30.jpg", "22.jpg"] },
+  { center: "30.jpg", sides: ["8.jpg", "4.jpg"] },
+  { center: "8.jpg", sides: ["32.jpg", "7.jpg"] }
+];
 
-  const centerSize = 480;
-  const sideSize = 200;
-  const duration = 1000;
-  let index = 0;
+const centerSize = 480;
+const sideSize = 200;
+const sideSizeMobile = 100; // laterals mòbil
+const centerSizeMobile = 200; // central mòbil
+const duration = 1000;
+let index = 0;
 
-  function showStep() {
-    const step = steps[index % steps.length];
+function isMobile() {
+  return window.innerWidth <= 768;
+}
 
-    const pattern = index % 2 === 0
-      ? [{ left: "75%", top: "15%", transform: "translate(-50%,0)" }, { left: "25%", top: "75%", transform: "translate(-50%,0)" }]
-      : [{ left: "75%", top: "75%", transform: "translate(-50%,0)" }, { left: "25%", top: "15%", transform: "translate(-50%,0)" }];
+function showStep() {
+  const step = steps[index % steps.length];
+  const pattern = index % 2 === 0
+    ? [{ left: "75%", top: "15%", transform: "translate(-50%,0)" }, { left: "25%", top: "75%", transform: "translate(-50%,0)" }]
+    : [{ left: "75%", top: "75%", transform: "translate(-50%,0)" }, { left: "25%", top: "15%", transform: "translate(-50%,0)" }];
 
-    const prevImgs = Array.from(imageContainer.querySelectorAll("img"));
-    const prevCenter = prevImgs.find(img => img.dataset.role === "center");
-    const prevSides = prevImgs.filter(img => img.dataset.role === "side");
+  const prevImgs = Array.from(imageContainer.querySelectorAll("img"));
+  const prevCenter = prevImgs.find(img => img.dataset.role === "center");
+  const prevSides = prevImgs.filter(img => img.dataset.role === "side");
 
-    let movingCenter = prevImgs.find(img => img.src.includes(step.center));
+  let movingCenter = prevImgs.find(img => img.src.includes(step.center));
 
-    if (!movingCenter) {
-      movingCenter = document.createElement("img");
-      movingCenter.src = basePath + step.center;
-      movingCenter.alt = "Projecte d'interiorisme Marina Romero";
-      movingCenter.loading = "lazy";
-      movingCenter.style.width = sideSize + "px"; // inicial petita
-      movingCenter.style.height = "auto";
-      movingCenter.style.opacity = 0;
-      movingCenter.style.zIndex = 1; // central per sota
-      movingCenter.dataset.role = "center";
-      imageContainer.appendChild(movingCenter);
-      movingCenter.style.left = pattern[1].left;
-      movingCenter.style.top = pattern[1].top;
-      movingCenter.style.transform = pattern[1].transform;
-    }
-
-    prevSides.forEach(img => { if (img !== movingCenter) img.style.opacity = 0; });
-    if (prevCenter) prevCenter.style.opacity = 0;
-
-    setTimeout(() => {
-      // Centrem la imatge central i fem gran
-      movingCenter.style.left = "50%";
-      movingCenter.style.top = "50%";
-      movingCenter.style.width = centerSize + "px";
-      movingCenter.style.transform = "translate(-50%,-50%)";
-
-      // Afegim les petites a sobre
-      step.sides.forEach((src, i) => {
-        const img = document.createElement("img");
-        img.src = basePath + src;
-        img.alt = "Imatge de projecte Marina Romero";
-        img.loading = "lazy";
-        img.style.left = pattern[i].left;
-        img.style.top = pattern[i].top;
-        img.style.width = sideSize + "px";
-        img.style.height = "auto";
-        img.style.transform = pattern[i].transform;
-        img.style.opacity = 0;
-        img.style.zIndex = 2; // petites a sobre
-        img.dataset.role = "side";
-        imageContainer.appendChild(img);
-        setTimeout(() => img.style.opacity = 1, duration);
-      });
-
-      // Esborrem les imatges invisibles
-      setTimeout(() => {
-        Array.from(imageContainer.querySelectorAll("img")).forEach(img => {
-          if (parseFloat(img.style.opacity) === 0) imageContainer.removeChild(img);
-        });
-      }, duration + 200);
-    }, duration);
-
-    index++;
+  if (!movingCenter) {
+    movingCenter = document.createElement("img");
+    movingCenter.src = basePath + step.center;
+    movingCenter.alt = "Projecte d'interiorisme Marina Romero";
+    movingCenter.loading = "lazy";
+    movingCenter.style.width = isMobile() ? sideSizeMobile + "px" : sideSize + "px"; 
+    movingCenter.style.height = "auto";
+    movingCenter.style.opacity = 0;
+    movingCenter.style.zIndex = 1; 
+    movingCenter.dataset.role = "center";
+    imageContainer.appendChild(movingCenter);
+    movingCenter.style.left = pattern[1].left;
+    movingCenter.style.top = pattern[1].top;
+    movingCenter.style.transform = pattern[1].transform;
   }
 
-  function initFirstStep() {
-    const first = steps[0];
-    const pattern = [{ left: "75%", top: "15%", transform: "translate(-50%,0)" }, { left: "25%", top: "75%", transform: "translate(-50%,0)" }];
+  prevSides.forEach(img => { if (img !== movingCenter) img.style.opacity = 0; });
+  if (prevCenter) prevCenter.style.opacity = 0;
+
+  setTimeout(() => {
+    // Centrem la imatge central i posem mida correcte segons dispositiu
+    movingCenter.style.left = "50%";
+    movingCenter.style.top = "50%";
+    movingCenter.style.width = isMobile() ? centerSizeMobile + "px" : centerSize + "px";
+    movingCenter.style.transform = "translate(-50%,-50%)";
 
     // Afegim les petites
-    first.sides.forEach((src, i) => {
+    step.sides.forEach((src, i) => {
       const img = document.createElement("img");
       img.src = basePath + src;
-      img.alt = "Projecte d'interiorisme Marina Romero";
+      img.alt = "Imatge de projecte Marina Romero";
       img.loading = "lazy";
       img.style.left = pattern[i].left;
       img.style.top = pattern[i].top;
-      img.style.width = sideSize + "px";
+      img.style.width = isMobile() ? sideSizeMobile + "px" : sideSize + "px"; 
       img.style.height = "auto";
       img.style.transform = pattern[i].transform;
       img.style.opacity = 0;
-      img.style.zIndex = 2; // petites a sobre
+      img.style.zIndex = 2; 
       img.dataset.role = "side";
       imageContainer.appendChild(img);
-      setTimeout(() => img.style.opacity = 1, 200);
+      setTimeout(() => img.style.opacity = 1, duration);
     });
 
-    // Afegim la central
-    const centerImg = document.createElement("img");
-    centerImg.src = basePath + first.center;
-    centerImg.alt = "Projecte central d'interiorisme Marina Romero";
-    centerImg.loading = "lazy";
-    centerImg.style.left = "50%";
-    centerImg.style.top = "50%";
-    centerImg.style.width = centerSize + "px";
-    centerImg.style.height = "auto";
-    centerImg.style.transform = "translate(-50%,-50%)";
-    centerImg.style.opacity = 0;
-    centerImg.style.zIndex = 1; // central per sota
-    centerImg.dataset.role = "center";
-    imageContainer.appendChild(centerImg);
-    setTimeout(() => centerImg.style.opacity = 1, 200);
+    setTimeout(() => {
+      Array.from(imageContainer.querySelectorAll("img")).forEach(img => {
+        if (parseFloat(img.style.opacity) === 0) imageContainer.removeChild(img);
+      });
+    }, duration + 200);
+  }, duration);
 
-    index++;
-  }
+  index++;
+}
 
-  initFirstStep();
-  setInterval(showStep, 6000);
+function initFirstStep() {
+  const first = steps[0];
+  const pattern = [{ left: "75%", top: "15%", transform: "translate(-50%,0)" }, { left: "25%", top: "75%", transform: "translate(-50%,0)" }];
+
+  first.sides.forEach((src, i) => {
+    const img = document.createElement("img");
+    img.src = basePath + src;
+    img.alt = "Projecte d'interiorisme Marina Romero";
+    img.loading = "lazy";
+    img.style.left = pattern[i].left;
+    img.style.top = pattern[i].top;
+    img.style.width = isMobile() ? sideSizeMobile + "px" : sideSize + "px";
+    img.style.height = "auto";
+    img.style.transform = pattern[i].transform;
+    img.style.opacity = 0;
+    img.style.zIndex = 2; 
+    img.dataset.role = "side";
+    imageContainer.appendChild(img);
+    setTimeout(() => img.style.opacity = 1, 200);
+  });
+
+  const centerImg = document.createElement("img");
+  centerImg.src = basePath + first.center;
+  centerImg.alt = "Projecte central d'interiorisme Marina Romero";
+  centerImg.loading = "lazy";
+  centerImg.style.left = "50%";
+  centerImg.style.top = "50%";
+  centerImg.style.width = isMobile() ? centerSizeMobile + "px" : centerSize + "px";
+  centerImg.style.height = "auto";
+  centerImg.style.transform = "translate(-50%,-50%)";
+  centerImg.style.opacity = 0;
+  centerImg.style.zIndex = 1; 
+  centerImg.dataset.role = "center";
+  imageContainer.appendChild(centerImg);
+  setTimeout(() => centerImg.style.opacity = 1, 200);
+
+  index++;
+}
+
+// Inici i interval
+initFirstStep();
+setInterval(showStep, 6000);
+
+// Redimensionament finestra
+window.addEventListener("resize", () => {
+  const imgs = Array.from(imageContainer.querySelectorAll("img"));
+  imgs.forEach(img => {
+    if (img.dataset.role === "center") {
+      img.style.width = isMobile() ? centerSizeMobile + "px" : centerSize + "px";
+    } else if (img.dataset.role === "side") {
+      img.style.width = isMobile() ? sideSizeMobile + "px" : sideSize + "px";
+    }
+  });
+});
 </script>
 
   <!-- Scripts JS -->

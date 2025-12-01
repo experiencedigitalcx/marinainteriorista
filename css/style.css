@@ -1896,7 +1896,7 @@ figure.dotted-bg {
   #image-container {
     position: relative;
     width: 100%;
-    height: 600px; /* ajusta l'altura */
+    height: 600px; /* ajusta si cal */
     overflow: hidden;
   }
 
@@ -1907,26 +1907,24 @@ figure.dotted-bg {
     will-change: transform, width, left, top, opacity;
   }
 
-  /* La imatge central */
+  /* Central sempre sota */
   #image-container img[data-role="center"] {
-    z-index: 1; /* sempre sota */
+    z-index: 1;
   }
 
-  /* Les petites */
+  /* Laterals a sobre */
   #image-container img[data-role="side"] {
-    z-index: 2; /* petites a sobre */
+    z-index: 2;
     cursor: pointer;
   }
 
-  /* Responsive mòbil */
+  /* Responsive mòbil: només ajustem laterals, sense !important */
   @media (max-width: 768px) {
-      article, aside, figcaption, figure, footer, header, hgroup, main, nav, section{
-          margin-left: 20px;
-          margin-right: 20px;
-      }
+    #image-container img[data-role="side"] {
+      width: 100px; 
+      height: auto;
+    }
   }
-
-
 
 
 
