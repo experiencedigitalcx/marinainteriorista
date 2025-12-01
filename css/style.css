@@ -4,10 +4,14 @@
 * Author URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */
+html{
+    background-color: #f5f4f2;
+}
 body {
   font-family: "PT Mono", monospace;
   line-height: 1.6;
   background: #ffffff;
+    background-color: #f5f4f2;
   overflow-x: hidden;
   font-size: 16px; }
   body:before {
@@ -2001,3 +2005,80 @@ figure.dotted-bg {
     padding: 20px;
   }
 }
+
+
+
+
+
+
+
+/*Porfoli projectes*/
+.portfolio-full-item {
+  position: relative;
+  display: block;
+    margin: 10px;
+    
+   
+}
+.portfolio-full-item img {
+  width: 100%;      /* ocupa tot l'ample */
+  height: auto;     /* manté la proporció */
+  display: block;   /* elimina espais inesperats sota la imatge */
+}
+.full-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;   /* centra horitzontalment */
+  align-items: center;       /* centra verticalment */
+  text-align: center;
+  color: white;
+  pointer-events: none;
+}
+
+.full-overlay h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+    font-weight: 300;
+}
+
+
+
+
+/*footer*/
+
+/* Media query per mòbil */
+@media (max-width: 768px) {
+  .footer-layout{
+    font-size: 10px;
+  }
+
+  
+}
+
+
+
+
+
+/*mobil imatge centre gran*/
+@media (max-width: 768px) {
+  #image-container img[data-role="center"] {
+    width: 300px !important; /* més petita al mobil */
+  }
+
+  #image-container img[data-role="side"] {
+    width: 200px !important; /* opcional: també redueix les laterals */
+  }
+}
+
+
+
+
+
+/* Text més petit en mòbil */
+@media (max-width: 768px) {
+  .menu_fixed .menu-item a {
+    font-size: 14px; /* més petit per pantalles petites */
+  }
