@@ -14,6 +14,21 @@ main{
     margin-bottom: 30px;
 }
 
+p{
+    font-family: sans-serif;
+    color: black;
+    line-height: 1.5;
+    font-size: 15px;
+    font-weight: 400;
+}
+li{
+    font-family: sans-serif;
+    color: black;
+    line-height: 1.5;
+    font-size: 15px;
+    font-weight: 400;
+}
+
 body {
   font-family: "PT Mono", monospace;
   line-height: 1.6;
@@ -1996,6 +2011,7 @@ figure.dotted-bg {
 @media (max-width: 768px) {
     .mobile-only {
         display: block;
+        text-align: center
     }
 }
 /* S’amaga només en pantalles mòbils */
@@ -2003,13 +2019,14 @@ figure.dotted-bg {
     .hide-mobile {
         display: none !important;
     }
+    
 }
 
 
 .two-col-wrapper {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+ 
 }
 
 .col-left, .col-right {
@@ -2038,7 +2055,7 @@ figure.dotted-bg {
 @media (max-width: 900px) {
   .two-col-wrapper {
     flex-direction: column;   /* Imatge a dalt, text a sota */
-	  margin-bottom: -6rem;
+	  
   }
 
   .col-right {
@@ -2112,7 +2129,7 @@ figure.dotted-bg {
 
 /* Media query per mòbil */
 @media (max-width: 768px) {
-  .footer-layout{
+  .footer-layout p{
     font-size: 8px;
   }
 
