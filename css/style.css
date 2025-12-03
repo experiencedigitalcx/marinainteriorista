@@ -2013,6 +2013,9 @@ figure.dotted-bg {
         display: block;
         text-align: center
     }
+    .col-right{
+        margin-top: 0px !important;
+    }
 }
 /* S’amaga només en pantalles mòbils */
 @media (max-width: 768px) {
