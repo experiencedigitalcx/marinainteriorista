@@ -1987,7 +1987,23 @@ figure.dotted-bg {
 
 /*Estudi*/
 
+/* Amaga per defecte */
+.mobile-only {
+    display: none;
+}
 
+/* Mostra només en pantalles mòbils */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+}
+/* S’amaga només en pantalles mòbils */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
 
 
 .two-col-wrapper {
