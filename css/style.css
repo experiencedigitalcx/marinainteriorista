@@ -2038,6 +2038,7 @@ figure.dotted-bg {
 @media (max-width: 900px) {
   .two-col-wrapper {
     flex-direction: column;   /* Imatge a dalt, text a sota */
+	  margin-bottom: -6rem;
   }
 
   .col-right {
