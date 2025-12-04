@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ca">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Marina Romero">
+  <meta name="description" content="Marina Romero - Estudi de disseny i projectes d'interiorisme, amb galeria d'imatges inspiradores i projectes personalitzats.">
+  <meta name="keywords" content="Marina Romero, interiorisme, disseny d'interiors, projectes d'interiorisme, estudi de disseny, decoració, galeria d'imatges, disseny creatiu, tendències interiors">
+  <meta name="robots" content="index, follow">
+  <link rel="shortcut icon" href="../favicon.png">
+
+  <!-- Open Graph per xarxes socials -->
+  <meta property="og:title" content="Marina Romero - Estudi d'Interiorisme">
+  <meta property="og:description" content="Descobreix els projectes de Marina Romero, estudi de disseny i interiorisme, amb idees creatives i inspiració.">
+  <meta property="og:image" content="images/preview.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.marinainteriorista.com">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="../fonts/icomoon/style.css">
+  <link rel="stylesheet" href="../../fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="../css/aos.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <title>Marina Romero - Estudi d'Interiorisme</title>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
+
+  <header>
+    <nav class="menu_fixed" id="menu">
+      <div class="menu-row">
+        <table style="width: 100%">
+          <tr>
+            <td style="width: 50%"><a href="index.html" title="Marina Romero - Home">MARINA</a></td>
+            <td style="width: 50%"><a href="index.html" title="Marina Romero - Home">ROMERO</a></td>
+          </tr>
+        </table>
+      </div>
+    </nav>
+
+    <nav class="menu_fixed_down">
+      <table style="width: 100%">
+        <tr>
+          <td style="text-align: left; padding-left: 10px; width: 50%"><a href="projectes.html" title="Projectes d'interiorisme" data-i18n="header_title_1">PROYECTOS</a></td>
+          <td style="text-align: right; padding-right: 10px; width: 50%"><a href="estudi.html" title="L'estudi de disseny de Marina Romero" data-i18n="header_title_2">ESTUDIO</a></td>
+        </tr>
+      </table>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home-gallery">
+      <h1 class="sr-only">Galeria de projectes d'interiorisme de Marina Romero</h1>
+      <div id="image-container" style="position: relative; margin-top: 30px; width: 100%; height: 88vh; overflow: hidden;"></div>
+    </section>	
+	  
+<div class="lang-switch">
+    <a href="../ca/index.html">Català</a> | 
+    <a href="../es/index.html">Español</a>
+</div>
+	  
+	  
+  </main>
+<!-- Selector d’idioma -->
+
+ 
+
+  <style>
+    #image-container img {
+      position: absolute;
+      object-fit: cover;
+      transition: all 1s ease-in-out;
+      will-change: transform, width, left, top, opacity;
+    }
+  </style>
+
+    <script>
+const imageContainer = document.getElementById("image-container");
+const basePath = "../images/marina/pantalla_home_img_materials/";
+const steps = [
+  { center: "32.jpg", sides: ["31.jpg", "23.jpg"] },
+  { center: "23.jpg", sides: ["13.jpg", "11.jpg"] },
+  { center: "13.jpg", sides: ["15.jpg", "16.jpg"] },
+  { center: "16.jpg", sides: ["17.jpg", "3.jpg"] },
+  { center: "17.jpg", sides: ["18.jpg", "29.jpg"] },
+  { center: "18.jpg", sides: ["19.jpg", "33.jpg"] },
+  { center: "19.jpg", sides: ["25.jpg", "28.jpg"] },
+  { center: "25.jpg", sides: ["20.jpg", "31.jpg"] },
+  { center: "20.jpg", sides: ["2.jpg", "24.jpg"] },
+  { center: "24.jpg", sides: ["30.jpg", "22.jpg"] },
+  { center: "30.jpg", sides: ["4.jpg", "8.jpg"] },
+  { center: "8.jpg", sides: ["32.jpg", "7.jpg"] }
+];
+
+const centerSize = 500;
+const sideSize = 250;
+const sideSizeMobile = 200; // laterals mòbil
+const centerSizeMobile = 300; // central mòbil
+const duration = 1000;
+let index = 0;
+
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+function showStep() {
+  const step = steps[index % steps.length];
+  const pattern = index % 2 === 0
+    ? [{ left: "75%", top: "15%", transform: "translate(-50%,0)" }, { left: "25%", top: "75%", transform: "translate(-50%,0)" }]
+    : [{ left: "75%", top: "75%", transform: "translate(-50%,0)" }, { left: "25%", top: "15%", transform: "translate(-50%,0)" }];
+
+  const prevImgs = Array.from(imageContainer.querySelectorAll("img"));
+  const prevCenter = prevImgs.find(img => img.dataset.role === "center");
+  const prevSides = prevImgs.filter(img => img.dataset.role === "side");
+
+  let movingCenter = prevImgs.find(img => img.src.includes(step.center));
+
+  if (!movingCenter) {
+    movingCenter = document.createElement("img");
+    movingCenter.src = basePath + step.center;
+    movingCenter.alt = "Projecte d'interiorisme Marina Romero";
+    movingCenter.loading = "lazy";
+    movingCenter.style.width = isMobile() ? sideSizeMobile + "px" : sideSize + "px"; 
+    movingCenter.style.height = "auto";
+    movingCenter.style.opacity = 0;
+    movingCenter.style.zIndex = 1; 
+    movingCenter.dataset.role = "center";
+    imageContainer.appendChild(movingCenter);
+    movingCenter.style.left = pattern[1].left;
+    movingCenter.style.top = pattern[1].top;
+    movingCenter.style.transform = pattern[1].transform;
+  }
+
+  prevSides.forEach(img => { if (img !== movingCenter) img.style.opacity = 0; });
+  if (prevCenter) prevCenter.style.opacity = 0;
+
+  setTimeout(() => {
+    // Centrem la imatge central i posem mida correcte segons dispositiu
+    movingCenter.style.left = "50%";
+    movingCenter.style.top = "50%";
+    movingCenter.style.width = isMobile() ? centerSizeMobile + "px" : centerSize + "px";
+    movingCenter.style.transform = "translate(-50%,-50%)";
+
+    // Afegim les petites
+    step.sides.forEach((src, i) => {
+      const img = document.createElement("img");
+      img.src = basePath + src;
+      img.alt = "Imatge de projecte Marina Romero";
+      img.loading = "lazy";
+      img.style.left = pattern[i].left;
+      img.style.top = pattern[i].top;
+      img.style.width = isMobile() ? sideSizeMobile + "px" : sideSize + "px"; 
+      img.style.height = "auto";
+      img.style.transform = pattern[i].transform;
+      img.style.opacity = 0;
+      img.style.zIndex = 2; 
+      img.dataset.role = "side";
+      imageContainer.appendChild(img);
+      setTimeout(() => img.style.opacity = 1, duration);
+    });
+
+    setTimeout(() => {
+      Array.from(imageContainer.querySelectorAll("img")).forEach(img => {
+        if (parseFloat(img.style.opacity) === 0) imageContainer.removeChild(img);
+      });
+    }, duration + 200);
+  }, duration);
+
+  index++;
+}
+
+function initFirstStep() {
+  const first = steps[0];
+  const pattern = [{ left: "75%", top: "15%", transform: "translate(-50%,0)" }, { left: "25%", top: "75%", transform: "translate(-50%,0)" }];
+
+  first.sides.forEach((src, i) => {
+    const img = document.createElement("img");
+    img.src = basePath + src;
+    img.alt = "Projecte d'interiorisme Marina Romero";
+    img.loading = "lazy";
+    img.style.left = pattern[i].left;
+    img.style.top = pattern[i].top;
+    img.style.width = isMobile() ? sideSizeMobile + "px" : sideSize + "px";
+    img.style.height = "auto";
+    img.style.transform = pattern[i].transform;
+    img.style.opacity = 0;
+    img.style.zIndex = 2; 
+    img.dataset.role = "side";
+    imageContainer.appendChild(img);
+    setTimeout(() => img.style.opacity = 1, 200);
+  });
+
+  const centerImg = document.createElement("img");
+  centerImg.src = basePath + first.center;
+  centerImg.alt = "Projecte central d'interiorisme Marina Romero";
+  centerImg.loading = "lazy";
+  centerImg.style.left = "50%";
+  centerImg.style.top = "50%";
+  centerImg.style.width = isMobile() ? centerSizeMobile + "px" : centerSize + "px";
+  centerImg.style.height = "auto";
+  centerImg.style.transform = "translate(-50%,-50%)";
+  centerImg.style.opacity = 0;
+  centerImg.style.zIndex = 1; 
+  centerImg.dataset.role = "center";
+  imageContainer.appendChild(centerImg);
+  setTimeout(() => centerImg.style.opacity = 1, 200);
+
+  index++;
+}
+
+// Inici i interval
+initFirstStep();
+setInterval(showStep, 4000);
+
+// Redimensionament finestra
+window.addEventListener("resize", () => {
+  const imgs = Array.from(imageContainer.querySelectorAll("img"));
+  imgs.forEach(img => {
+    if (img.dataset.role === "center") {
+      img.style.width = isMobile() ? centerSizeMobile + "px" : centerSize + "px";
+    } else if (img.dataset.role === "side") {
+      img.style.width = isMobile() ? sideSizeMobile + "px" : sideSize + "px";
+    }
+  });
+});
+</script>
+
+  <!-- Scripts JS -->
+
+
+  
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/jquery.animateNumber.min.js"></script>
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <script src="../js/jquery.fancybox.min.js"></script>
+  <script src="../js/aos.js"></script>
+  <script src="../js/wave-animate.js"></script>
+  <script src="../js/circle-progress.js"></script>
+  <script src="../js/imagesloaded.pkgd.js"></script>
+  <script src="../js/isotope.pkgd.min.js"></script>
+  <script src="../js/jquery.easing.1.3.js"></script>
+  <script src="../js/TweenMax.min.js"></script>
+  <script src="../js/ScrollMagic.min.js"></script>
+  <script src="../js/scrollmagic.animation.gsap.min.js"></script>
+  <script src="../js/custom.js"></script>
+  <script src="../js/propi.js"></script>
+
+</body>
+</html>
