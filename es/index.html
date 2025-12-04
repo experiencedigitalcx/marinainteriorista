@@ -125,8 +125,8 @@ function isMobile() {
 function showStep() {
   const step = steps[index % steps.length];
   const pattern = index % 2 === 0
-    ? [{ left: "75%", top: "15%", transform: "translate(-50%,0)" }, { left: "25%", top: "75%", transform: "translate(-50%,0)" }]
-    : [{ left: "75%", top: "75%", transform: "translate(-50%,0)" }, { left: "25%", top: "15%", transform: "translate(-50%,0)" }];
+    ? [{ left: "75%", top: "15%", transform: "translate(-50%,0)" }, { left: "25%", top: "60%", transform: "translate(-50%,0)" }]
+    : [{ left: "75%", top: "60%", transform: "translate(-50%,0)" }, { left: "25%", top: "15%", transform: "translate(-50%,0)" }];
 
   const prevImgs = Array.from(imageContainer.querySelectorAll("img"));
   const prevCenter = prevImgs.find(img => img.dataset.role === "center");
