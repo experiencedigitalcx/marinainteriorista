@@ -61,9 +61,16 @@
     <section id="home-gallery">
       <h1 class="sr-only">Galeria de projectes d'interiorisme de Marina Romero</h1>
       <div id="image-container" style="position: relative; margin-top: 30px; width: 100%; height: 88vh; overflow: hidden;"></div>
-		<button onclick="setLang('ca')">Català</button>
-<button onclick="setLang('es')">Español</button>
     </section>
+	  
+	  
+	  <!-- Botons per canviar idioma -->
+<div class="lang-switch">
+    <button onclick="setLang('ca')">Català</button>
+    <button onclick="setLang('es')">Español</button>
+</div>
+	  
+	  
   </main>
 
  
@@ -229,12 +236,8 @@ window.addEventListener("resize", () => {
 </script>
 
   <!-- Scripts JS -->
-  <script type="module">
-  async function loadTranslations() {
-    const res = await fetch('translations.json');
-    return await res.json();
-  }
-</script>
+
+
   <script src="lang.js"></script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/popper.min.js"></script>
