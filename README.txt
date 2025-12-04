@@ -1,3 +1,11 @@
+<!-- ============================================================
+   © 2025 Juli Rovira — EDCX · Experience Digital CX
+   Web desenvolupada al desembre de 2025
+   Client: Marina Romero — Interioristes.cat
+   Desenvolupament Web · Experiència Digital · Projectes a mida
+   Tots els drets reservats.
+=============================================================== -->
+
 Template Name: Created By EDCX - Experience Digital CX (EDCX)
 Author: Juli Rovira Godayol
 

@@ -1,5 +1,13 @@
 
-
+/*
+============================================================
+   © 2025 Juli Rovira — EDCX · Experience Digital CX
+   Web desenvolupada al desembre de 2025
+   Client: Marina Romero — Interioristes.cat
+   Desenvolupament Web · Experiència Digital · Projectes a mida
+   Tots els drets reservats.
+===============================================================
+*/
   const menu = document.getElementById("menu");
   let lastScroll = 0;
 
