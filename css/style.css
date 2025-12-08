@@ -2129,6 +2129,19 @@ figure.dotted-bg {
 }
 
 
+/* Mostrar sempre el títol a partir de tablet (ex: 768px) */
+@media (min-width: 768px) {
+  .portfolio-full-item .full-overlay h3 {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .portfolio-full-item .full-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
 
 
 /*footer*/
