@@ -2217,4 +2217,17 @@ figure.dotted-bg {
 }
 	
 
+    
+    
+    
+    
+    .right-center {
+        padding-top: 0; /* Valor predeterminado */
+    }
+
+    @media (max-width: 768px) {
+        .right-center {
+            padding-top: 100px;
+        }
+    }
 
